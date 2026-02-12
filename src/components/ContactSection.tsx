@@ -19,7 +19,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-28 md:py-40 bg-background">
+    <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -50,7 +50,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="text-foreground font-medium">hello@meridiandev.com</p>
+                  <p className="text-foreground font-medium">hello@incon.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">

@@ -43,7 +43,7 @@ const VisionSection = () => {
             <span className="italic font-normal">begins with the land.</span>
           </h2>
           <p className="mt-8 text-primary-foreground/70 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-            For over two decades, Meridian has been at the forefront of
+            For over two decades, Incon has been at the forefront of
             responsible land development. We see beyond the terrain—envisioning
             the neighborhoods, workplaces, and gathering places that will define
             communities for generations.
