@@ -40,7 +40,7 @@ const LotDetailModal = ({ lot, open, onClose }: LotDetailModalProps) => {
               Lot {lot.lotNumber}
             </DialogTitle>
             <span
-              className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusBadgeClass(
+              className={`px-3 py-1 text-xs font-medium uppercase tracking-wider ${getStatusBadgeClass(
                 lot.status
               )}`}
             >
@@ -55,9 +55,7 @@ const LotDetailModal = ({ lot, open, onClose }: LotDetailModalProps) => {
         {/* Lot Stats */}
         <div className="grid grid-cols-2 gap-4 py-4 border-y border-border">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-              <Ruler size={18} className="text-accent" />
-            </div>
+            <Ruler size={18} className="text-muted-foreground" />
             <div>
               <p className="text-xs text-muted-foreground">Size</p>
               <p className="font-semibold text-foreground">{lot.acres} acres</p>
@@ -65,9 +63,7 @@ const LotDetailModal = ({ lot, open, onClose }: LotDetailModalProps) => {
           </div>
           {lot.price && (
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                <DollarSign size={18} className="text-accent" />
-              </div>
+              <DollarSign size={18} className="text-muted-foreground" />
               <div>
                 <p className="text-xs text-muted-foreground">Price</p>
                 <p className="font-semibold text-foreground">{lot.price}</p>
@@ -91,9 +87,9 @@ const LotDetailModal = ({ lot, open, onClose }: LotDetailModalProps) => {
               {lot.features.map((feature) => (
                 <div
                   key={feature}
-                  className="flex items-center gap-1.5 bg-secondary px-3 py-1.5 rounded-full"
+                  className="flex items-center gap-1.5 border border-border px-3 py-1.5"
                 >
-                  <Check size={12} className="text-accent" />
+                  <Check size={12} className="text-muted-foreground" />
                   <span className="text-xs text-foreground">{feature}</span>
                 </div>
               ))}
@@ -107,7 +103,7 @@ const LotDetailModal = ({ lot, open, onClose }: LotDetailModalProps) => {
             <Link
               to="/contact"
               onClick={onClose}
-              className="w-full bg-primary text-primary-foreground py-3 rounded-full font-medium text-sm hover:opacity-90 transition-opacity duration-300 flex items-center justify-center gap-2"
+              className="w-full bg-primary text-primary-foreground py-3 font-medium text-sm hover:opacity-90 transition-opacity duration-300 flex items-center justify-center gap-2"
             >
               <MapPin size={16} />
               Inquire About This Lot
@@ -123,7 +119,7 @@ const LotDetailModal = ({ lot, open, onClose }: LotDetailModalProps) => {
             <Link
               to="/contact"
               onClick={onClose}
-              className="w-full mt-3 bg-secondary text-foreground py-3 rounded-full font-medium text-sm hover:bg-secondary/80 transition-colors duration-300 flex items-center justify-center gap-2"
+              className="w-full mt-3 bg-secondary text-foreground py-3 font-medium text-sm hover:bg-secondary/80 transition-colors duration-300 flex items-center justify-center gap-2"
             >
               Join Waitlist
             </Link>

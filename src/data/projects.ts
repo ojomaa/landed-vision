@@ -23,6 +23,7 @@ export interface Project {
     year: string;
   };
   features: string[];
+  gallery?: string[];
   siteMap?: string;
   lots?: Lot[];
 }
@@ -41,6 +42,12 @@ export const projects: Project[] = [
     location: "Cedar Park, Texas",
     stats: { acres: "180", units: "280", year: "2021" },
     features: ["5+ miles of trails", "3 community parks", "Preserved oak groves", "Community garden", "Award-winning schools"],
+    gallery: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1448630360428-65456885c650?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=800&fit=crop",
+    ],
   },
   {
     id: "2",
@@ -54,6 +61,12 @@ export const projects: Project[] = [
     location: "Austin, Texas",
     stats: { acres: "150", sqft: "2.1M", year: "2022" },
     features: ["LEED-certified buildings", "Outdoor collaboration spaces", "On-site dining", "Fitness center", "EV charging stations"],
+    gallery: [
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=800&fit=crop",
+    ],
   },
   {
     id: "3",
@@ -67,6 +80,12 @@ export const projects: Project[] = [
     location: "San Antonio, Texas",
     stats: { acres: "65", units: "520", year: "2022" },
     features: ["Riverfront promenade", "Public art installations", "Rooftop amenities", "Underground parking", "Event pavilion"],
+    gallery: [
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1555636222-cae831e670b3?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=1200&h=800&fit=crop",
+    ],
   },
   // Current Projects
   {
@@ -81,6 +100,12 @@ export const projects: Project[] = [
     location: "Dripping Springs, Texas",
     stats: { acres: "320", units: "450", year: "2024" },
     features: ["20-acre central park", "Resort-style pool", "Hill Country views", "Trail connections", "Community clubhouse"],
+    gallery: [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=800&fit=crop",
+    ],
     siteMap: siteMapCrestview,
     lots: crestviewLots,
   },
@@ -96,6 +121,12 @@ export const projects: Project[] = [
     location: "New Braunfels, Texas",
     stats: { acres: "200", sqft: "1.5M", year: "2024" },
     features: ["40-foot clear heights", "Cross-dock capable", "Rail access", "Trailer parking", "Solar-ready roofs"],
+    gallery: [
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&h=800&fit=crop",
+    ],
   },
   // Future Projects
   {
@@ -110,6 +141,12 @@ export const projects: Project[] = [
     location: "Corpus Christi, Texas",
     stats: { acres: "85", units: "800", year: "2026" },
     features: ["15-acre waterfront park", "Boutique hotel", "Marina access", "Public event spaces", "Water taxi service"],
+    gallery: [
+      "https://images.unsplash.com/photo-1515263487990-61b07816b324?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&h=800&fit=crop",
+    ],
   },
   {
     id: "7",
@@ -123,6 +160,12 @@ export const projects: Project[] = [
     location: "Fredericksburg, Texas",
     stats: { acres: "450", units: "220", year: "2027" },
     features: ["1-5 acre homesites", "Equestrian center", "Dark sky compliant", "Wildlife corridors", "Community barn"],
+    gallery: [
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1595877244574-e90ce41ce089?w=1200&h=800&fit=crop",
+    ],
   },
   {
     id: "8",
@@ -136,6 +179,12 @@ export const projects: Project[] = [
     location: "Round Rock, Texas",
     stats: { acres: "120", sqft: "1.8M", year: "2027" },
     features: ["Lab-ready spaces", "Conference center", "On-site hotel", "Childcare facility", "Biophilic design"],
+    gallery: [
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop",
+    ],
   },
 ];
 

@@ -35,19 +35,14 @@ const Vision = () => {
           />
           <div className="absolute inset-0 bg-foreground/75" />
         </div>
-        <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
+        <div className="relative z-10 container mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              Our Vision
-            </p>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground tracking-tight">
-              Every Great Community
-              <br />
-              <span className="italic font-normal">Begins with the Land</span>
+              Every Great Community Begins with the Land
             </h1>
           </motion.div>
         </div>
@@ -61,12 +56,9 @@ const Vision = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl"
           >
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              Our Mission
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-8">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-8 pb-6 border-b border-border">
               Shaping the Land. Building the Future.
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
@@ -86,9 +78,6 @@ const Vision = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              Our Impact
-            </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground tracking-tight">
               25 Years of Building Communities
             </h2>
@@ -103,7 +92,7 @@ const Vision = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="text-center"
               >
-                <p className="font-display text-4xl md:text-5xl font-bold text-accent">
+                <p className="font-display text-4xl md:text-5xl font-bold text-primary-foreground">
                   {stat.value}
                 </p>
                 <p className="mt-2 text-primary-foreground/60 text-sm tracking-wide uppercase">
@@ -123,12 +112,9 @@ const Vision = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={isApproachInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl"
           >
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              Our Approach
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-8">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-8 pb-6 border-b border-border">
               Responsible Development
             </h2>
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
@@ -146,7 +132,7 @@ const Vision = () => {
             <div className="mt-12">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity duration-300"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-medium hover:opacity-90 transition-opacity duration-300"
               >
                 Start a Project
                 <ArrowRight size={18} />

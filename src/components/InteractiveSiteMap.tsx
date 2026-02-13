@@ -15,12 +15,12 @@ const InteractiveSiteMap = ({ image, imageAlt, lots }: InteractiveSiteMapProps) 
 
   return (
     <>
-      <div className="relative w-full">
+      <div className="relative w-full flex justify-center">
         {/* Site map image */}
         <img
           src={image}
           alt={imageAlt}
-          className="w-full h-auto rounded-xl"
+          className="w-full h-auto max-h-[75vh] object-contain"
         />
 
         {/* SVG overlay */}
@@ -85,15 +85,15 @@ const InteractiveSiteMap = ({ image, imageAlt, lots }: InteractiveSiteMapProps) 
       {/* Legend */}
       <div className="flex flex-wrap justify-center gap-6 mt-6">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-green-500 opacity-60" />
+          <div className="w-4 h-4 bg-green-500 opacity-60" />
           <span className="text-sm text-muted-foreground">Available</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-yellow-500 opacity-60" />
+          <div className="w-4 h-4 bg-yellow-500 opacity-60" />
           <span className="text-sm text-muted-foreground">Reserved</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-gray-400 opacity-60" />
+          <div className="w-4 h-4 bg-gray-400 opacity-60" />
           <span className="text-sm text-muted-foreground">Sold</span>
         </div>
       </div>

@@ -3,203 +3,230 @@ import Footer from "@/components/Footer";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import visionBg from "@/assets/vision-bg.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const teamMembers = [
   {
     name: "James Mitchell",
     role: "Founder & CEO",
-    bio: "25+ years of experience in land development across the Southwest.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=face",
   },
   {
     name: "Sarah Chen",
     role: "Chief Development Officer",
-    bio: "Leads project planning and execution for all major developments.",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=face",
   },
   {
     name: "Marcus Rodriguez",
     role: "VP of Operations",
-    bio: "Oversees day-to-day operations and strategic partnerships.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&crop=face",
   },
   {
     name: "Emily Thompson",
     role: "Director of Sustainability",
-    bio: "Champions environmental stewardship across all projects.",
-  },
-];
-
-const values = [
-  {
-    title: "Integrity",
-    description: "We build trust through transparency and ethical practices in every interaction.",
-  },
-  {
-    title: "Excellence",
-    description: "We pursue the highest standards in planning, execution, and community impact.",
-  },
-  {
-    title: "Sustainability",
-    description: "We develop land responsibly, preserving resources for future generations.",
-  },
-  {
-    title: "Partnership",
-    description: "We collaborate closely with communities, investors, and stakeholders.",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=800&fit=crop&crop=face",
   },
 ];
 
 const About = () => {
   const storyRef = useRef(null);
+  const missionRef = useRef(null);
   const teamRef = useRef(null);
-  const valuesRef = useRef(null);
   const isStoryInView = useInView(storyRef, { once: true, margin: "-100px" });
+  const isMissionInView = useInView(missionRef, { once: true, margin: "-100px" });
   const isTeamInView = useInView(teamRef, { once: true, margin: "-100px" });
-  const isValuesInView = useInView(valuesRef, { once: true, margin: "-100px" });
 
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative pt-28 pb-16 md:pt-36 md:pb-20">
-        <div className="absolute inset-0">
-          <img
-            src={visionBg}
-            alt="About Incon"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/80" />
-        </div>
-        <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
+      {/* Hero — full page image with centered text */}
+      <section className="relative h-screen">
+        <img
+          src={visionBg}
+          alt="Aerial view of land development"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight text-center px-6"
           >
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              About Us
-            </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground tracking-tight">
-              Building Communities
-              <br />
-              <span className="italic font-normal">Since 2001</span>
-            </h1>
-          </motion.div>
+            Our Story
+          </motion.h1>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-6 lg:px-8">
+      {/* Opening statement — big editorial text */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-[95vw] mx-auto">
           <motion.div
             ref={storyRef}
             initial={{ opacity: 0, y: 40 }}
             animate={isStoryInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto text-center"
           >
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              Our Story
+            <p className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground leading-snug tracking-tight">
+              We started with a simple idea: that the land beneath our feet shapes the way we live. In 2001, we set out to build communities that people are proud to call home.
             </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-8">
-              From Vision to Reality
-            </h2>
-            <div className="prose prose-lg text-muted-foreground">
-              <p className="text-lg leading-relaxed mb-6">
-                Incon was founded with a simple belief: that thoughtful land development can transform not just landscapes, but lives. What began as a small team with big ambitions has grown into one of the Southwest's most respected development firms.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                Over the past two decades, we've developed more than 12,000 acres across Texas, Arizona, and New Mexico. Each project reflects our commitment to creating spaces where communities can thrive—residential neighborhoods where families grow, commercial centers where businesses flourish, and mixed-use destinations where people connect.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Today, Incon continues to push the boundaries of what's possible in land development. We combine decades of expertise with forward-thinking approaches to sustainability, technology, and community design. Our legacy isn't just measured in acres developed, but in the lasting value we create for the people who live, work, and gather in the spaces we help bring to life.
-              </p>
-            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div
-            ref={valuesRef}
-            initial={{ opacity: 0, y: 40 }}
-            animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              Our Values
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight">
-              What Guides Us
-            </h2>
-          </motion.div>
+      {/* Split — image left, text right */}
+      <section>
+        <div className="max-w-[95vw] mx-auto">
+          <div className="grid md:grid-cols-2 gap-2">
+            <div className="overflow-hidden">
+              <img
+                src={heroBg}
+                alt="Community development"
+                className="w-full aspect-[4/3] object-cover"
+              />
+            </div>
+            <motion.div
+              ref={missionRef}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="bg-primary p-10 md:p-16 flex flex-col justify-center"
+            >
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground tracking-tight mb-6">
+                12,000 acres. 50+ communities. 25 years.
+              </h2>
+              <p className="text-primary-foreground/60 leading-relaxed mb-6">
+                From a small office in Austin, we've grown into one of the Southwest's most respected development firms. Every acre we touch reflects a commitment to the people who will eventually call it home.
+              </p>
+              <p className="text-primary-foreground/60 leading-relaxed">
+                We don't just develop land — we listen to it. We study the terrain, understand the community, and build something that belongs there. That's been our approach from day one, and it's not changing.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-background p-8 rounded-2xl"
-              >
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
+      {/* Stats */}
+      <section className="mt-2">
+        <div className="max-w-[95vw] mx-auto relative overflow-hidden">
+          <img
+            src={visionBg}
+            alt="Landscape"
+            className="w-full aspect-[21/7] object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+              25 Years of Building Communities
+            </h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
+              <div className="text-center">
+                <p className="font-display text-4xl md:text-5xl font-bold text-white">50+</p>
+                <p className="mt-2 text-white/50 text-xs tracking-[0.15em] uppercase font-medium">Communities Built</p>
+              </div>
+              <div className="text-center">
+                <p className="font-display text-4xl md:text-5xl font-bold text-white">12K</p>
+                <p className="mt-2 text-white/50 text-xs tracking-[0.15em] uppercase font-medium">Acres Developed</p>
+              </div>
+              <div className="text-center">
+                <p className="font-display text-4xl md:text-5xl font-bold text-white">25</p>
+                <p className="mt-2 text-white/50 text-xs tracking-[0.15em] uppercase font-medium">Years of Excellence</p>
+              </div>
+              <div className="text-center">
+                <p className="font-display text-4xl md:text-5xl font-bold text-white">98%</p>
+                <p className="mt-2 text-white/50 text-xs tracking-[0.15em] uppercase font-medium">Client Satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values — minimal */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-[95vw] mx-auto">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-6">
+              What We Believe
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Four principles guide every project we take on.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-2">
+            <div className="border-t border-border pt-8 px-2">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-3">Integrity</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Transparency and ethical practices in every interaction.
+              </p>
+            </div>
+            <div className="border-t border-border pt-8 px-2">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-3">Excellence</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                The highest standards in planning, execution, and impact.
+              </p>
+            </div>
+            <div className="border-t border-border pt-8 px-2">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-3">Sustainability</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Developing land responsibly for future generations.
+              </p>
+            </div>
+            <div className="border-t border-border pt-8 px-2">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-3">Partnership</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Close collaboration with communities and stakeholders.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Team */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-6 lg:px-8">
-          <motion.div
-            ref={teamRef}
-            initial={{ opacity: 0, y: 40 }}
-            animate={isTeamInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              Leadership
-            </p>
+      <section className="pb-0">
+        <div className="max-w-[95vw] mx-auto">
+          <div className="text-center mb-8">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight">
-              Our Team
+              The Team
             </h2>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.name}
-                initial={{ opacity: 0, y: 40 }}
+                ref={index === 0 ? teamRef : undefined}
+                initial={{ opacity: 0, y: 30 }}
                 animate={isTeamInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="text-center"
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                className="relative overflow-hidden"
               >
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-secondary flex items-center justify-center">
-                  <span className="text-4xl font-display font-bold text-muted-foreground">
-                    {member.name.split(" ").map((n) => n[0]).join("")}
-                  </span>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full aspect-[3/4] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                  <h3 className="font-display text-lg font-semibold text-white">
+                    {member.name}
+                  </h3>
+                  <p className="text-white/50 text-xs tracking-[0.15em] uppercase font-medium mt-1">
+                    {member.role}
+                  </p>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground">
-                  {member.name}
-                </h3>
-                <p className="text-accent text-sm font-medium mb-2">{member.role}</p>
-                <p className="text-muted-foreground text-sm">{member.bio}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <Footer />
+      <div className="pt-20">
+        <Footer />
+      </div>
     </main>
   );
 };

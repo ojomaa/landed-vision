@@ -39,21 +39,21 @@ const ServicesSection = () => {
   const headerInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-16 md:py-24">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="services" className="pt-20 pb-0">
+      <div className="max-w-[95vw] mx-auto">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 40 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-12 border-b border-border pb-6"
+          className="text-center mb-8"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             Capabilities
           </h2>
         </motion.div>
 
-        <div className="divide-y divide-border border-b border-border">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
           {services.map((service, index) => {
             const ref = useRef(null);
             const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -65,17 +65,15 @@ const ServicesSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.08 }}
-                className="group grid md:grid-cols-2 gap-4 md:gap-12 py-10 md:py-14 items-start"
+                className="group relative bg-primary p-8 md:p-10 min-h-[280px] md:min-h-[320px] flex flex-col justify-end"
               >
-                <div className="flex items-start gap-6">
-                  <span className="font-display text-5xl md:text-6xl font-bold text-accent/20 leading-none group-hover:text-accent/40 transition-colors duration-500">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight pt-2">
-                    {service.title}
-                  </h3>
-                </div>
-                <p className="text-muted-foreground leading-relaxed md:pt-3">
+                <span className="font-display text-5xl md:text-6xl font-bold text-primary-foreground/10 leading-none absolute top-6 right-8 group-hover:text-primary-foreground/20 transition-colors duration-500">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-display text-xl md:text-2xl font-bold text-primary-foreground tracking-tight mb-4 relative z-10">
+                  {service.title}
+                </h3>
+                <p className="text-primary-foreground/60 leading-relaxed text-sm relative z-10">
                   {service.description}
                 </p>
               </motion.div>

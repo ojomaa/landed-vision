@@ -30,13 +30,8 @@ const ContactSection = () => {
         >
           {/* Left column */}
           <div>
-            <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-              Get in Touch
-            </p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-              Let's Build
-              <br />
-              <span className="italic font-normal">Something Remarkable.</span>
+              Let's Build Something Remarkable.
             </h2>
             <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-lg">
               Whether you have land to develop, a project to discuss, or a
@@ -45,27 +40,21 @@ const ContactSection = () => {
 
             <div className="mt-12 space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                  <Mail className="text-accent" size={20} />
-                </div>
+                <Mail className="text-muted-foreground" size={20} />
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <p className="text-foreground font-medium">hello@incon.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                  <Phone className="text-accent" size={20} />
-                </div>
+                <Phone className="text-muted-foreground" size={20} />
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
                   <p className="text-foreground font-medium">(512) 555-0140</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                  <MapPin className="text-accent" size={20} />
-                </div>
+                <MapPin className="text-muted-foreground" size={20} />
                 <div>
                   <p className="text-sm text-muted-foreground">Office</p>
                   <p className="text-foreground font-medium">Austin, Texas</p>
@@ -86,7 +75,7 @@ const ContactSection = () => {
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3.5 bg-secondary border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-300"
+                  className="w-full px-4 py-3.5 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-all duration-300"
                   placeholder="John Smith"
                   required
                 />
@@ -101,7 +90,7 @@ const ContactSection = () => {
                     id="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3.5 bg-secondary border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-300"
+                    className="w-full px-4 py-3.5 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-all duration-300"
                     placeholder="john@company.com"
                     required
                   />
@@ -115,7 +104,7 @@ const ContactSection = () => {
                     id="phone"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3.5 bg-secondary border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-300"
+                    className="w-full px-4 py-3.5 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-all duration-300"
                     placeholder="(512) 555-0100"
                   />
                 </div>
@@ -129,14 +118,14 @@ const ContactSection = () => {
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3.5 bg-secondary border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3.5 bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-all duration-300 resize-none"
                   placeholder="Describe your land, location, and development goals..."
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-primary text-primary-foreground py-4 rounded-full font-medium text-base hover:opacity-90 transition-opacity duration-300 flex items-center justify-center gap-2 group"
+                className="w-full bg-primary text-primary-foreground py-4 font-medium text-base hover:opacity-90 transition-opacity duration-300 flex items-center justify-center gap-2 group"
               >
                 Send Message
                 <ArrowRight

@@ -34,13 +34,8 @@ const VisionSection = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <p className="text-accent text-sm tracking-[0.3em] uppercase font-medium mb-4">
-            Our Vision
-          </p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground tracking-tight leading-tight">
-            Every great community
-            <br />
-            <span className="italic font-normal">begins with the land.</span>
+            Every great community begins with the land.
           </h2>
           <p className="mt-8 text-primary-foreground/70 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
             For over two decades, Incon has been at the forefront of
@@ -59,7 +54,7 @@ const VisionSection = () => {
         >
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="font-display text-4xl md:text-5xl font-bold text-accent">
+              <p className="font-display text-4xl md:text-5xl font-bold text-primary-foreground">
                 {stat.value}
               </p>
               <p className="mt-2 text-primary-foreground/60 text-sm tracking-wide uppercase">

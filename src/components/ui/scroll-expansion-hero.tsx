@@ -255,7 +255,7 @@ const ScrollExpandMedia = ({
                 <div className='flex flex-col items-center text-center relative z-10 mt-4 transition-none'>
                   {subtitle && (
                     <p
-                      className='text-xl md:text-2xl text-accent font-medium'
+                      className='text-xl md:text-2xl text-primary-foreground/70 font-medium'
                       style={{ transform: `translateX(-${textTranslateX}vw)` }}
                     >
                       {subtitle}
@@ -292,15 +292,16 @@ const ScrollExpandMedia = ({
               </div>
             </div>
 
-            <motion.section
-              className='flex flex-col w-full'
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showContent ? 1 : 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              {children}
-            </motion.section>
           </div>
+
+          <motion.section
+            className='flex flex-col w-full'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: showContent ? 1 : 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            {children}
+          </motion.section>
         </div>
       </section>
     </div>
