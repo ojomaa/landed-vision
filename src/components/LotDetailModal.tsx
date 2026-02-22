@@ -21,11 +21,11 @@ const LotDetailModal = ({ lot, open, onClose }: LotDetailModalProps) => {
   const getStatusBadgeClass = (status: Lot["status"]) => {
     switch (status) {
       case "available":
-        return "bg-green-500 text-white";
+        return "bg-blue-600 text-white";
       case "sold":
         return "bg-gray-400 text-white";
       case "reserved":
-        return "bg-yellow-500 text-white";
+        return "bg-accent text-white";
       default:
         return "bg-gray-400 text-white";
     }

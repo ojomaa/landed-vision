@@ -5,7 +5,7 @@ import InteractiveSiteMap from "@/components/InteractiveSiteMap";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Check } from "lucide-react";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { getProjectBySlug, getProjects } from "@/lib/storage";
 
 const GallerySection = ({ images, title }: { images: string[]; title: string }) => {
   const [page, setPage] = useState(0);
@@ -82,7 +82,7 @@ const ProjectDetail = () => {
     return <Navigate to="/projects" replace />;
   }
 
-  const relatedProjects = projects
+  const relatedProjects = getProjects()
     .filter((p) => p.category === project.category && p.id !== project.id)
     .slice(0, 2);
 

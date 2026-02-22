@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { projects, ProjectStatus } from "@/data/projects";
+import { ProjectStatus } from "@/data/projects";
+import { getProjects } from "@/lib/storage";
 
 const tabs = [
   { id: "current" as ProjectStatus, label: "Current" },
@@ -16,6 +17,7 @@ const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const projects = getProjects();
   const filteredProjects = projects.filter((p) => p.status === activeTab);
 
   return (

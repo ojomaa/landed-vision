@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
+        condensed: ['"Barlow"', 'Helvetica', 'sans-serif'],
         body: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {

@@ -15,12 +15,13 @@ const InteractiveSiteMap = ({ image, imageAlt, lots }: InteractiveSiteMapProps) 
 
   return (
     <>
-      <div className="relative w-full flex justify-center">
+      <div className="w-full flex justify-center">
+        <div className="relative inline-block max-w-full">
         {/* Site map image */}
         <img
           src={image}
           alt={imageAlt}
-          className="w-full h-auto max-h-[75vh] object-contain"
+          className="max-w-full max-h-[75vh] h-auto"
         />
 
         {/* SVG overlay */}
@@ -80,16 +81,17 @@ const InteractiveSiteMap = ({ image, imageAlt, lots }: InteractiveSiteMapProps) 
             );
           })}
         </svg>
+        </div>
       </div>
 
       {/* Legend */}
       <div className="flex flex-wrap justify-center gap-6 mt-6">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-green-500 opacity-60" />
+          <div className="w-4 h-4 bg-blue-600 opacity-60" />
           <span className="text-sm text-muted-foreground">Available</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-yellow-500 opacity-60" />
+          <div className="w-4 h-4 bg-accent opacity-60" />
           <span className="text-sm text-muted-foreground">Reserved</span>
         </div>
         <div className="flex items-center gap-2">
