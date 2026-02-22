@@ -4,29 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import visionBg from "@/assets/vision-bg.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
-
-const teamMembers = [
-  {
-    name: "James Mitchell",
-    role: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=face",
-  },
-  {
-    name: "Sarah Chen",
-    role: "Chief Development Officer",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=face",
-  },
-  {
-    name: "Marcus Rodriguez",
-    role: "VP of Operations",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&crop=face",
-  },
-  {
-    name: "Emily Thompson",
-    role: "Director of Sustainability",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=800&fit=crop&crop=face",
-  },
-];
+import { getTeam } from "@/lib/storage";
 
 const About = () => {
   const storyRef = useRef(null);
@@ -35,6 +13,8 @@ const About = () => {
   const isStoryInView = useInView(storyRef, { once: true, margin: "-100px" });
   const isMissionInView = useInView(missionRef, { once: true, margin: "-100px" });
   const isTeamInView = useInView(teamRef, { once: true, margin: "-100px" });
+
+  const teamMembers = getTeam();
 
   return (
     <main className="min-h-screen bg-background">

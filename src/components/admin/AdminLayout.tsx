@@ -1,6 +1,6 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { logout } from "@/lib/storage";
-import { FolderOpen, LogOut } from "lucide-react";
+import { FolderOpen, LogOut, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const AdminLayout = () => {
@@ -34,6 +34,19 @@ const AdminLayout = () => {
           >
             <FolderOpen size={16} />
             Projects
+          </NavLink>
+          <NavLink
+            to="/admin/team"
+            className={({ isActive }) =>
+              `flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors ${
+                isActive
+                  ? "bg-primary-foreground/15 text-primary-foreground"
+                  : "text-primary-foreground/60 hover:text-primary-foreground hover:bg-primary-foreground/10"
+              }`
+            }
+          >
+            <Users size={16} />
+            Team
           </NavLink>
         </nav>
 
