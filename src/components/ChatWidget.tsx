@@ -66,7 +66,8 @@ const ChatWidget = () => {
       if (!res.ok) throw new Error("Failed to get response");
 
       const data = await res.json();
-      const reply = data.reply || "Sorry, I couldn't process that. Please try again.";
+      const raw = data.reply || "Sorry, I couldn't process that. Please try again.";
+      const reply = raw.replace(/\*\*/g, "").replace(/\*/g, "");
 
       setHistory([...updatedHistory, { role: "assistant", content: reply }]);
       setMessages((prev) => [
