@@ -8,36 +8,9 @@ interface Message {
   sender: "user" | "bot";
 }
 
-const mockResponses: Record<string, string> = {
-  hello: "Hello! Welcome to Incon. How can I help you today?",
-  hi: "Hi there! How can I assist you?",
-  services:
-    "Incon offers comprehensive construction and development services including residential builds, commercial projects, and land development. Would you like to know more about a specific service?",
-  projects:
-    "We have a diverse portfolio of completed and ongoing projects. Visit our Projects page to explore our work in detail.",
-  contact:
-    "You can reach us through our Contact page, or call us directly. We'd love to hear from you.",
-  pricing:
-    "Our pricing varies by project scope and requirements. Get in touch through our Contact page for a personalized quote.",
-  location:
-    "We operate across multiple regions. Visit our Contact page for office locations and service areas.",
-  about:
-    "Incon is a construction and development company committed to quality craftsmanship and innovative design. Learn more on our About page.",
-  hours:
-    "Our office hours are Monday through Friday, 8:00 AM to 6:00 PM. For urgent matters, please use our Contact page.",
-};
-
-const fallbackResponse =
-  "Thanks for reaching out! For detailed inquiries, please visit our contact page.";
-
-function getBotResponse(userMessage: string): string {
-  const lower = userMessage.toLowerCase();
-  for (const [keyword, response] of Object.entries(mockResponses)) {
-    if (lower.includes(keyword)) {
-      return response;
-    }
-  }
-  return fallbackResponse;
+interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
 }
 
 const ChatWidget = () => {
@@ -49,6 +22,7 @@ const ChatWidget = () => {
       sender: "bot",
     },
   ]);
+  const [history, setHistory] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -64,9 +38,9 @@ const ChatWidget = () => {
     }
   }, [isOpen]);
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     const trimmed = input.trim();
-    if (!trimmed) return;
+    if (!trimmed || isTyping) return;
 
     const userMsg: Message = {
       id: Date.now(),
@@ -77,16 +51,40 @@ const ChatWidget = () => {
     setInput("");
     setIsTyping(true);
 
-    const delay = 500 + Math.random() * 300;
-    setTimeout(() => {
-      const botMsg: Message = {
-        id: Date.now() + 1,
-        text: getBotResponse(trimmed),
-        sender: "bot",
-      };
-      setMessages((prev) => [...prev, botMsg]);
+    const updatedHistory: ChatMessage[] = [
+      ...history,
+      { role: "user", content: trimmed },
+    ];
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: updatedHistory }),
+      });
+
+      if (!res.ok) throw new Error("Failed to get response");
+
+      const data = await res.json();
+      const reply = data.reply || "Sorry, I couldn't process that. Please try again.";
+
+      setHistory([...updatedHistory, { role: "assistant", content: reply }]);
+      setMessages((prev) => [
+        ...prev,
+        { id: Date.now() + 1, text: reply, sender: "bot" },
+      ]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now() + 1,
+          text: "Sorry, something went wrong. Please try again or contact us at hello@incon.com.",
+          sender: "bot",
+        },
+      ]);
+    } finally {
       setIsTyping(false);
-    }, delay);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -156,7 +154,7 @@ const ChatWidget = () => {
               />
               <button
                 onClick={sendMessage}
-                disabled={!input.trim()}
+                disabled={!input.trim() || isTyping}
                 className="p-2 bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-40"
               >
                 <Send className="w-4 h-4" />
