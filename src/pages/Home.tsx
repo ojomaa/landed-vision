@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import ServicesSection from "@/components/ServicesSection";
 import Footer from "@/components/Footer";
-import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
+import { ImagesSlider } from "@/components/ui/images-slider";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -9,8 +9,9 @@ import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 
 // Import assets
-import heroBg from "@/assets/hero-bg.jpg";
-import heroVideo from "@/assets/hero-video.mp4";
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 // Get 4 featured projects (mix of current and future)
 const featuredProjects = projects.filter((p) => p.status === "current" || p.status === "future").slice(0, 4);
@@ -131,20 +132,29 @@ const HomeContent = () => {
 };
 
 const Home = () => {
+  const sliderImages = [heroSlide1, heroSlide2, heroSlide3];
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
-      <ScrollExpandMedia
-        mediaType="video"
-        mediaSrc={heroVideo}
-        bgImageSrc={heroBg}
-        title="Building Tomorrow's Communities"
-        subtitle="Land Development Excellence"
-        scrollToExpand="Scroll to explore"
-        textBlend
-      >
-        <HomeContent />
-      </ScrollExpandMedia>
+      <ImagesSlider className="h-[100dvh]" images={sliderImages}>
+        <motion.div
+          initial={{ opacity: 0, y: -80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="z-50 flex flex-col justify-center items-center"
+        >
+          <motion.p className="text-xs md:text-sm tracking-[0.3em] uppercase font-medium text-white/70 mb-4">
+            Land Development Excellence
+          </motion.p>
+          <motion.h1 className="font-condensed font-bold text-4xl md:text-6xl lg:text-7xl text-center text-white tracking-tight uppercase py-4">
+            Building Tomorrow's
+            <br />
+            Communities
+          </motion.h1>
+        </motion.div>
+      </ImagesSlider>
+      <HomeContent />
     </main>
   );
 };
