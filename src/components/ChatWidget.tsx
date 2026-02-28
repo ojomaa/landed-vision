@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   id: number;
@@ -66,8 +67,7 @@ const ChatWidget = () => {
       if (!res.ok) throw new Error("Failed to get response");
 
       const data = await res.json();
-      const raw = data.reply || "Sorry, I couldn't process that. Please try again.";
-      const reply = raw.replace(/\*\*/g, "").replace(/\*/g, "");
+      const reply = data.reply || "Sorry, I couldn't process that. Please try again.";
 
       setHistory([...updatedHistory, { role: "assistant", content: reply }]);
       setMessages((prev) => [
@@ -128,7 +128,26 @@ const ChatWidget = () => {
                         : "bg-muted text-foreground"
                     }`}
                   >
-                    {msg.text}
+                    {msg.sender === "bot" ? (
+                      <ReactMarkdown
+                        components={{
+                          p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                          strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+                          ul: ({ children }) => <ul className="list-disc ml-4 mb-1">{children}</ul>,
+                          ol: ({ children }) => <ol className="list-decimal ml-4 mb-1">{children}</ol>,
+                          li: ({ children }) => <li className="mb-0.5">{children}</li>,
+                          a: ({ href, children }) => (
+                            <a href={href} className="underline" target="_blank" rel="noopener noreferrer">
+                              {children}
+                            </a>
+                          ),
+                        }}
+                      >
+                        {msg.text}
+                      </ReactMarkdown>
+                    ) : (
+                      msg.text
+                    )}
                   </div>
                 </div>
               ))}
